@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { onAddNewEvent, onDeleteEvent, onLoadEvents, onSetActiveEnvent, onUpdateEvent } from '../store';
 import { calendarApi } from '../api';
-import { convertToDateEvents } from '../helpers';
+import { convertEventsToDateEvents } from '../helpers';
 import Swal from 'sweetalert2';
 
 
@@ -29,7 +29,7 @@ export const useCalendarStore = () => {
       // creando
       const { data } = await calendarApi.post('/events', calendarEvent);
       
-      dispatch( onAddNewEvent({ ...calendarEvent, id: data.evento.id, user }) )
+      dispatch( onAddNewEvent({ ...calendarEvent, id: data.evento.id, user }) );
       
     } catch (error) {
       console.log(error);
@@ -41,7 +41,7 @@ export const useCalendarStore = () => {
 
   }
 
-  const startDeletingEvent = async(  ) => {
+  const startDeletingEvent = async() => {
     // Todo: llegar al backend
     try {
  
@@ -54,9 +54,7 @@ export const useCalendarStore = () => {
       Swal.fire('Error al eliminar', error.response.data.msg, 'error' );
     }
 
-
     
-    dispatch( onDeleteEvent() );
   }
 
   
@@ -64,7 +62,7 @@ export const useCalendarStore = () => {
 
     try {
       const { data } = await calendarApi.get('/events');
-      const events = convertToDateEvents( data.eventos );
+      const events = convertEventsToDateEvents( data.eventos );
       dispatch( onLoadEvents( events ) )
       
 

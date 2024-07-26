@@ -49,7 +49,7 @@ export const CalendarModal = () => {
     if ( !formSubmmited ) return '';
 
     return ( formValues.title.length > 0 )
-      ? 'is-valid' : 'is-invalid';
+      ? '' : 'is-invalid';
     
   }, [ formValues.title, formSubmmited ])
 
@@ -76,7 +76,7 @@ export const CalendarModal = () => {
 
 
   const onCloseModal = () => {
-    console.log('cerrando modal');
+    
     closeDateModal();
   }
 

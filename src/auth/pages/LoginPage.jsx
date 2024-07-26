@@ -21,8 +21,8 @@ export const LoginPage = () => {
 
     const { startLogin, errorMessage, startRegister } = useAuthStore();
 
-    const { loginEmail, loginPassword, onInputChange: onLoginInputChange } = useForm( loginFormFields );
-    const { registerName, registerEmail, registerPassword, registerPassword2, onInputChange: onRegisterInputChange } = useForm( registerFormFields );
+    const { loginEmail, loginPassword, onInputChange:onLoginInputChange } = useForm( loginFormFields );
+    const { registerName, registerEmail, registerPassword, registerPassword2, onInputChange:onRegisterInputChange } = useForm( registerFormFields );
 
     const loginSubmit = ( event ) => {
         event.preventDefault();
