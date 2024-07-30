@@ -18,11 +18,10 @@ export const useUiStore = () => {
         dispatch( onCloseDateModal() )
     }
 
-    const 
-    toggleDateModal = () => {
+    const toggleDateModal = () => {
         (isDateModalOpen)
-        ? openDateModal() 
-        : closeDateModal();
+            ? openDateModal() 
+            : closeDateModal();
     }
 
     return {
