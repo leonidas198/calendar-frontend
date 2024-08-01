@@ -13,6 +13,7 @@ export const FabDelete = () => {
 
   return (
     <button
+        aria-label="btn-delete"
         className="btn btn-danger fab-delete"
         onClick={ handleDelete }
         style={{
